@@ -1,0 +1,109 @@
+<body>
+<script>
+    
+    function computerPlay()
+    {
+        let choices = ['rock', 'paper', 'scissor'];
+        choices = choices[Math.floor(Math.random()*choices.length)];
+        return choices;
+        
+
+    }
+
+    function playRound(playerSelection,computerSelection)
+    {   
+        let winner ='';
+        if(computerSelection.toLowerCase() == 'paper' && playerSelection.toLowerCase() == 'rock')
+        {
+            computerwin++;
+            winner = playerSelection + " "+ computerSelection + " " +'You Lose! paper beats rock'
+            console.log(winner);
+            return winner;
+        }
+        else if(computerSelection.toLowerCase() == 'paper' && playerSelection.toLowerCase() == 'scissor')
+        {
+            playerwin++;
+            winner = playerSelection + " "+ computerSelection + " " + "You Win! scissor beats paper";
+            console.log(winner);
+            return winner;
+        }
+        else if(computerSelection.toLowerCase() == 'paper' && playerSelection.toLowerCase() == 'paper')
+        {
+            winner = playerSelection + " "+ computerSelection + " " +"No Winner It's a Draw";
+            console.log(winner);
+            return winner;
+        }
+        else if (computerSelection.toLowerCase() == 'rock' && playerSelection.toLowerCase() == 'scissor')
+        {
+            computerwin++;
+            winner = playerSelection + " "+ computerSelection + " " +'You Lose! rock beats scissor'
+            console.log(winner);
+            return winner;
+        }
+        else if (computerSelection.toLowerCase() == 'rock' && playerSelection.toLowerCase() == 'paper')
+        {
+            playerwin++;
+            winner = playerSelection + " "+ computerSelection + " " + "You Win! paper beats rock";
+            console.log(winner);
+            return winner;
+        }
+        else if (computerSelection.toLowerCase() == 'rock' && playerSelection.toLowerCase() == 'rock')
+        {
+            winner = playerSelection + " "+ computerSelection + " " +"No Winner It's a Draw";
+            console.log(winner);
+            return winner;
+        }
+        
+        else if (computerSelection.toLowerCase() == 'scissor' && playerSelection.toLowerCase() == 'paper')
+        {
+            computerwin++;
+            winner = playerSelection + " "+ computerSelection + " " +'You Lose! scissor beats paper'
+            console.log(winner);
+            return winner;
+        }
+        else if (computerSelection.toLowerCase() == 'scissor' && playerSelection.toLowerCase() == 'rock')
+        {
+            playerwin++;
+            winner = playerSelection + " "+ computerSelection + " " + "You Win! rock beats scissor";
+            console.log(winner);
+            return winner;
+        }
+        
+        else if (computerSelection.toLowerCase() == 'scissor' && playerSelection.toLowerCase() == 'scissor')
+        {
+            winner = playerSelection + " "+ computerSelection + " " +"No Winner It's a Draw";
+            console.log(winner);
+            return winner;
+        }
+        
+
+    }
+    function game()
+    {   playerwin = 0;
+        computerwin = 0;
+        for(let i =0;i<5;i++){
+            const playerSelection =  prompt("Please make a choice from rock|paper|scissor"); 
+            const ComputerSelection = computerPlay();
+            playRound(playerSelection,ComputerSelection);
+        }
+        if (playerwin > computerwin)
+        {
+            return "Player wins with a total of " + playerwin + " victories";
+        }
+        if(computerwin > playerwin)
+        {
+            return "Computer wins with a total of " + computerwin + " victories" ;
+        }
+        else if(computerwin == playerwin)
+        {
+            return "it's a draw with Computer victories of " + computerwin + " and Player victories of " + playerwin ;
+
+        }
+    }
+    
+    
+    
+    
+    console.log(game());
+</script>
+</body>
