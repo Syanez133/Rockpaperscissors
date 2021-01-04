@@ -1,62 +1,8 @@
 <body>
-<script>
-    function computerPlay()
-    {
-        let choices = ['rock', 'paper', 'scissor'];
-        choices = choices[Math.floor(Math.random()*choices.length)];
-        return choices;
- 
-    }
-    function playRound(playerSelection,computerSelection)
-    {   
-        let winner ='';
-        //WINS
-        if((computerSelection.toLowerCase() == 'paper' && playerSelection.toLowerCase() == 'scissor')||
-        (computerSelection.toLowerCase() == 'rock' && playerSelection.toLowerCase() == 'paper')||
-        (computerSelection.toLowerCase() == 'scissor' && playerSelection.toLowerCase() == 'rock'))
-        {
-            playerwin++;
-            winner = playerSelection + " "+ computerSelection + " " + "You Win!";
-            console.log(winner);
-            return winner;
-        }
-        //Draw
-        else if(computerSelection.toLowerCase() == playerSelection.toLowerCase())
-        {
-            winner = playerSelection + " "+ computerSelection + " " +"No Winner It's a Draw";
-            console.log(winner);
-            return winner;
-        }
-        // Anything else is a loss
-        else{
-            computerwin++;
-            winner = playerSelection + " "+ computerSelection + " " +'You Lose!'
-            console.log(winner);
-            return winner;
-        }
-    }
-    function game()
-    {   playerwin = 0;
-        computerwin = 0;
-        for(let i =0;i<5;i++){
-            const playerSelection =  prompt("Please make a choice from rock|paper|scissor"); 
-            const ComputerSelection = computerPlay();
-            playRound(playerSelection,ComputerSelection);
-        }
-        if (playerwin > computerwin)
-        {
-            return "Player wins with a total of " + playerwin + " victories";
-        }
-        if(computerwin > playerwin)
-        {
-            return "Computer wins with a total of " + computerwin + " victories" ;
-        }
-        else if(computerwin == playerwin)
-        {
-            return "it's a draw with Computer victories of " + computerwin + " and Player victories of " + playerwin ;
+    <button id="rock_btn">Rock</button>
+    <button id="paper_btn">Paper</button>
+    <button id="scissor_btn">Scissors</button>
+    <div id="container"></div>
 
-        }
-    }
-    console.log(game());
-</script>
 </body>
+<script src="script.js"></script> 
